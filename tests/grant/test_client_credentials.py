@@ -4,7 +4,7 @@
 from mock import patch
 from unittest import TestCase
 
-from requests_oauth2lib.grants import ClientCredentialsGrant
+from requests_oauth2lib.grant import ClientCredentialsGrant
 
 
 class TestClientCredentials(TestCase):
