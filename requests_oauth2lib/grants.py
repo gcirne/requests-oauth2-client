@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
+import requests
+
+
 class ClientCredentialsGrant(object):
 
     def __init__(self, client_id, client_secret, token_endpoint):
@@ -9,4 +12,5 @@ class ClientCredentialsGrant(object):
         self._token_endpoint = token_endpoint
 
     def request_access_token(self):
-        return 'access_token'
+        response = requests.post(self._token_endpoint, data={'grant_type': 'client_credentials'})
+        return response.json()
