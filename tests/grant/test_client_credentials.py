@@ -19,5 +19,7 @@ class TestClientCredentials(TestCase):
         post.return_value.json.return_value = {'access_token': 'accesstoken'}
         access_token = grant.request_access_token()
 
-        post.assert_called_with(token_endpoint, data={'grant_type': 'client_credentials'})
+        post.assert_called_with(token_endpoint,
+                                data={'grant_type': 'client_credentials'},
+                                auth=('client_id', 'client_secret'))
         self.assertEqual(access_token, {'access_token': 'accesstoken'})

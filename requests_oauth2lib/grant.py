@@ -12,5 +12,7 @@ class ClientCredentialsGrant(object):
         self._token_endpoint = token_endpoint
 
     def request_access_token(self):
-        response = requests.post(self._token_endpoint, data={'grant_type': 'client_credentials'})
+        response = requests.post(self._token_endpoint,
+                                 data={'grant_type': 'client_credentials'},
+                                 auth=(self._client_id, self._client_secret))
         return response.json()
