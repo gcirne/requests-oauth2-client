@@ -4,7 +4,7 @@
 from mock import Mock
 from unittest import TestCase
 
-from requests_oauth2lib.auth import BearerTokenAuth
+from requests_oauth2_client.auth import BearerTokenAuth
 
 
 class TestBearerTokenAuth(TestCase):
